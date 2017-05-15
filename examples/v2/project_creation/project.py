@@ -20,20 +20,22 @@ def GenerateConfig(context):
   project_id = context.env['name']
   billing_name = 'billing_' + project_id
 
-  resources = [{
+  resources = [
+  {
       'name': project_id,
       'type': 'cloudresourcemanager.v1.project',
       'properties': {
-          'projectId': project_id,
-          'parent': {
-              'type': 'organization',
-              'id': context.properties['organization-id']
-          }
+          'projectId': project_id
+          # 'parent': {
+          #     'type': 'organization',
+          #     'id': context.properties['organization-id']
+          # }
       },
       'accessControl': {
           'gcpIamPolicy': context.properties['iam-policy']
       }
-  }, {
+  }, 
+  {
       'name': billing_name,
       'type': 'deploymentmanager.v2.virtual.projectBillingInfo',
       'metadata': {
@@ -43,7 +45,8 @@ def GenerateConfig(context):
           'name': 'projects/' + project_id,
           'billingAccountName': context.properties['billing-account-name']
       }
-  }, {
+  }, 
+  {
       'name': 'apis',
       'type': 'apis.py',
       'properties': {
@@ -51,7 +54,8 @@ def GenerateConfig(context):
           'billing': billing_name,
           'apis': context.properties['apis']
       }
-  }, {
+  }, 
+  {
       'name': 'service-accounts',
       'type': 'service-accounts.py',
       'properties': {

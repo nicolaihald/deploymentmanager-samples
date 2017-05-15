@@ -7,9 +7,9 @@ resources:
   type: project.py
   properties:
     # Change this to your organization ID.
-    organization-id: "128653134652"
+    organization-id: "55551857351"
     # Change the following to your organization's billing account
-    billing-account-name: billingAccounts/001504-B51098-F3D254
+    billing-account-name: billingAccounts/002F5C-FEC5B8-F681E9
     # The apis to enable in the new project.
     # To see the possible APIs, use gcloud CLI: gcloud service-management list
     apis:
@@ -29,11 +29,12 @@ resources:
       - role: roles/owner
         members:
         # Make sure to include the DM service account that is doing the deployment!
-        - serviceAccount:12345689999@cloudservices.gserviceaccount.com
+        - serviceAccount:55551857351@cloudservices.gserviceaccount.com        
         # Add any others you want to have access
-        - serviceAccount:98765432111@cloudservices.gserviceaccount.com
-        - serviceAccount:98765432100@cloudservices.gserviceaccount.com
+        # - serviceAccount:98765432111@cloudservices.gserviceaccount.com
+        # - serviceAccount:98765432100@cloudservices.gserviceaccount.com
+        - user:nicolai.hald@milestone.dk        
       - role: roles/viewer
         members:
-        - user:iamtester@deployment-manager.net
-
+        - user:tsm@milestone.dk
+ 
